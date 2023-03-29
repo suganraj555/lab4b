@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <script>
+        function validate()
+        {
+            var a = document.myform.name.value;
+            if(a=="")
+            {
+                alert("oops! Enter name!!!");
+                document.myform.name.focus();
+                return false;
+            }
+            if(!isNaN(a))
+            {
+                alert("oops! Enter characters");
+                document.myform.name.select();
+                return false;
+            }
+
+            var d = document.myform.mail.value;
+            if(d == "")
+            {
+                alert("ACHOO! Enter mail id!!!");
+                document.myform.mail.focus();
+                return false;
+            }
+            var atposition = d.indexOf("@");
+            var dotposition = d.lastIndexOf(".");
+            if(atposition<1 || dotposition<atposition+2 || dotposition+2>=d.length)
+                {
+                    alert("OOPS! enter valid mail address!!!!");
+                return false;                }
+
+            var p = document.myform.pass.value;
+            if(p == "")
+            {
+                alert("Enter your password!!!");
+                document.myform.pass.focus();
+                return false;
+            }
+            var cp = document.myform.cpass.value;
+            if(cp == "")
+            {
+                alert("OOPS, Enter your password!!!");
+                document.myform.cpass.focus();
+                return false;
+            }
+            if(p != cp)
+            {
+                alert("Password not matched please enter correct one!!!!");
+                document.myform.cpass.focus();
+                return false;
+            }
+
+            var m = document.myform.mno.value;
+            if(m =="")
+            {
+                alert("OOPS!, Enter moblie number!!!");
+                document.myform.mno.focus();
+                return false;
+            }
+            else if(m.length<10 || m.length>10)
+                {
+                    alert("please enter only 10 digits!");
+                    document.myform.mno.focus();
+                    return false;
+                }
+
+            var rb = document.myform.gender;
+            var status =0;
+            for(var i=0;i<rb.length;i++)
+            {
+                if(rb[i].checked==true){
+                    status=1;
+                }
+            }
+            if(status==0)
+            {
+                alert("select gender");
+                return false;
+            }
+
+            var interest = document.myform.course;
+            if(interest.selectedIndex==0)
+            {
+                alert("select your course");
+                document.myform.course.focus();
+                return false;
+            }
+
+           
+            return true;
+        }
+    </script>
+    <style>
+        .container{
+background-color:rgb(0, 94, 128);
+        }
+      .item{
+text-align-last: center;
+
+      }
+      h2{
+        text-align-last: center;
+      }
+    </style>
+
+
+
+
+    
+
+
+
+    <title>validate</title>
+</head>
+<body>
+    <h2>FORM VALIDATION</h2>
+    <div class="container">
+    <form action="action.html" name="myform"  onsubmit="return validate()">
+
+        <div class="item">
+            <label for="Username">Name:</label>
+            <input type="text" id="name" name="name">
+        </div> <br>
+        <div class="item">
+            <label for="Mailid">E-Mail:</label>
+            <input type="text" id="mail" name="mail">
+        </div><br> 
+        <div class="item">
+            <label for="password">Password:</label>
+            <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required><br>
+ 
+        </div> <br>
+        <div class="item">
+            <label for="cpassword">Confirm Password:</label>
+            <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required><br>
+ 
+        </div> <br>
+        <div class="item">
+            <label for="mno">Mobile number:</label>
+            <input type="text" id="mno" name="mno">
+        </div> <br>
+        <div class="item">
+            <label for="gender">Gender:</label> <br>
+            <input type="radio" id="gender" name="gender">
+            <label for="male">Male</label> <br>
+            <input type="radio" id="gender" name="gender">
+            <label for="female">Female</label> <br>
+            <input type="radio" id="gender" name="gender">
+            <label for="others">Others</label> <br>
+        </div> <br>
+        <div class="item">
+            <label for="course">Select Department:</label> <br>
+            <select type="text" name="course" id="course"> 
+                <option></option>
+                <option value="CSD">CSD</option>
+                <option value="AIML">AIML</option>
+                <option value="AIDS">AIDS</option>
+                <option value="IT">IT</option>
+                <option value="CS">CS</option>
+            </select>
+        </div> <br>
+        <div class="item">
+            <label for="mno">ADDRESS:</label>
+            <input type="text" size="65" name="Address">
+        </div> 
+    
+        
+
+        <div class="item">
+            <input type="submit" id="sub" name="sub">
+            <a href="C:\Users\SUGANRAJ S\Downloads\action.html"></a>
+        </div> <br>
+    </form>
+
+</div>
+</body>
+</html>
